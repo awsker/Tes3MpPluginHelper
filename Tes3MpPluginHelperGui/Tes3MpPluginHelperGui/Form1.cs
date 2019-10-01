@@ -32,6 +32,7 @@ namespace Tes3MpPluginHelperGui
                 _outputTextBox.Text = Properties.Settings.Default[OutputPath].ToString();
             }
             _defaultCrcCheckbox.Checked = (bool)Properties.Settings.Default[IncludeDefaultCRC];
+            updateButtonStatus();
         }
 
         private void saveSettings()
@@ -52,7 +53,8 @@ namespace Tes3MpPluginHelperGui
             var dialog = new OpenFileDialog();
             dialog.CheckFileExists = true;
             dialog.Multiselect = false;
-            dialog.InitialDirectory = Path.GetDirectoryName(_configTextBox.Text);
+            if (!string.IsNullOrWhiteSpace(_configTextBox.Text))
+                dialog.InitialDirectory = Path.GetDirectoryName(_configTextBox.Text);
             dialog.Filter = "cfg files(*.cfg)| *.cfg";
 
             var res = dialog.ShowDialog();
@@ -64,7 +66,9 @@ namespace Tes3MpPluginHelperGui
         {
             var dialog = new SaveFileDialog();
             dialog.Filter = "json files(*.json)| *.json";
-
+            dialog.FileName = "requiredDataFiles.json";
+            if (!string.IsNullOrWhiteSpace(_outputTextBox.Text))
+                dialog.InitialDirectory = Path.GetDirectoryName(_outputTextBox.Text);
             var res = dialog.ShowDialog();
             if (res == DialogResult.OK)
                 _outputTextBox.Text = dialog.FileName;
@@ -83,6 +87,32 @@ namespace Tes3MpPluginHelperGui
             {
                 MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void _previewButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var configs = Tes3MpPluginHelper.ConfigHandler.GetSelectedDatafiles(_configTextBox.Text);
+                var dialog = new PreviewDialog(configs);
+                dialog.Show(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void _configTextBox_TextChanged(object sender, EventArgs e)
+        {
+            updateButtonStatus();
+        }
+
+        private void updateButtonStatus()
+        {
+            bool fileExists = File.Exists(_configTextBox.Text);
+            _previewButton.Enabled = fileExists;
+            _generateButton.Enabled = fileExists;
         }
     }
 }

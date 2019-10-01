@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this._defaultCrcCheckbox = new System.Windows.Forms.CheckBox();
+            this._previewButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,6 +60,7 @@
             this._configTextBox.Name = "_configTextBox";
             this._configTextBox.Size = new System.Drawing.Size(304, 20);
             this._configTextBox.TabIndex = 1;
+            this._configTextBox.TextChanged += new System.EventHandler(this._configTextBox_TextChanged);
             // 
             // _browseConfigButton
             // 
@@ -74,7 +76,7 @@
             // _generateButton
             // 
             this._generateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._generateButton.Location = new System.Drawing.Point(275, 116);
+            this._generateButton.Location = new System.Drawing.Point(275, 100);
             this._generateButton.Name = "_generateButton";
             this._generateButton.Size = new System.Drawing.Size(136, 23);
             this._generateButton.TabIndex = 3;
@@ -86,7 +88,7 @@
             // 
             this._closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._closeButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._closeButton.Location = new System.Drawing.Point(417, 116);
+            this._closeButton.Location = new System.Drawing.Point(417, 100);
             this._closeButton.Name = "_closeButton";
             this._closeButton.Size = new System.Drawing.Size(75, 23);
             this._closeButton.TabIndex = 4;
@@ -97,7 +99,7 @@
             // _browseOutputButton
             // 
             this._browseOutputButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._browseOutputButton.Location = new System.Drawing.Point(416, 49);
+            this._browseOutputButton.Location = new System.Drawing.Point(416, 41);
             this._browseOutputButton.Name = "_browseOutputButton";
             this._browseOutputButton.Size = new System.Drawing.Size(75, 23);
             this._browseOutputButton.TabIndex = 7;
@@ -109,7 +111,7 @@
             // 
             this._outputTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._outputTextBox.Location = new System.Drawing.Point(107, 51);
+            this._outputTextBox.Location = new System.Drawing.Point(107, 43);
             this._outputTextBox.Name = "_outputTextBox";
             this._outputTextBox.Size = new System.Drawing.Size(303, 20);
             this._outputTextBox.TabIndex = 6;
@@ -117,7 +119,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 54);
+            this.label2.Location = new System.Drawing.Point(15, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 5;
@@ -132,19 +134,31 @@
             this._defaultCrcCheckbox.AutoSize = true;
             this._defaultCrcCheckbox.Checked = true;
             this._defaultCrcCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this._defaultCrcCheckbox.Location = new System.Drawing.Point(18, 87);
+            this._defaultCrcCheckbox.Location = new System.Drawing.Point(18, 74);
             this._defaultCrcCheckbox.Name = "_defaultCrcCheckbox";
             this._defaultCrcCheckbox.Size = new System.Drawing.Size(331, 17);
             this._defaultCrcCheckbox.TabIndex = 8;
             this._defaultCrcCheckbox.Text = "Include default checksums for English/Russian Morrowind ESMs";
             this._defaultCrcCheckbox.UseVisualStyleBackColor = true;
             // 
+            // _previewButton
+            // 
+            this._previewButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._previewButton.Location = new System.Drawing.Point(12, 100);
+            this._previewButton.Name = "_previewButton";
+            this._previewButton.Size = new System.Drawing.Size(147, 23);
+            this._previewButton.TabIndex = 9;
+            this._previewButton.Text = "Show Plugins";
+            this._previewButton.UseVisualStyleBackColor = true;
+            this._previewButton.Click += new System.EventHandler(this._previewButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this._closeButton;
-            this.ClientSize = new System.Drawing.Size(506, 151);
+            this.ClientSize = new System.Drawing.Size(506, 136);
+            this.Controls.Add(this._previewButton);
             this.Controls.Add(this._defaultCrcCheckbox);
             this.Controls.Add(this._browseOutputButton);
             this.Controls.Add(this._outputTextBox);
@@ -155,9 +169,9 @@
             this.Controls.Add(this._configTextBox);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(2560, 190);
+            this.MaximumSize = new System.Drawing.Size(2560, 175);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(471, 190);
+            this.MinimumSize = new System.Drawing.Size(471, 175);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -181,6 +195,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.CheckBox _defaultCrcCheckbox;
+        private System.Windows.Forms.Button _previewButton;
     }
 }
 
