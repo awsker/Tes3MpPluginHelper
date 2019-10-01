@@ -1,9 +1,7 @@
 # Tes3MpPluginHelper
-Windows based Graphical user interface for building a requiredDataFiles.json for a Tes3Mp server based on the currently selected plugins in OpenMW. I made this because I found it too cumbersome to update the plugin list with checksums manually when I added/changed what plugins to use.
+Tes3MpPluginHelper is a Windows based .NET Framework graphical interface for building a requiredDataFiles.json for a Tes3Mp server based on the currently selected plugins in OpenMW. I made this because I found it too cumbersome to update the plugin list with checksums manually when I added/changed what plugins to use.
 
-The repository contains two projects. Tes3MpPluginHelper is a .NET Standard library for building a requiredDataFiles.json from the selected plugins found in a OpenMW config file. It could be used to build an application that can run under Linux and OSX (both not tested).
-
-Tes3MpPluginHelperGui is a Windows based .NET Framework graphical interface that uses the binary from Tes3MpPluginHelper.
+The repository contains two projects. Tes3MpPluginHelperGui is the graphical interface. Tes3MpPluginHelper is a .NET Standard library for building a requiredDataFiles.json from the selected plugins found in a OpenMW config file. It could be used to build an application that can run under Linux and OSX (both not tested).
 
 # Download and install
 Check under [Releases](https://github.com/awsker/Tes3MpPluginHelper/releases/tag/v0.1). Just unzip the files anywhere.
