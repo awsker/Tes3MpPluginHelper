@@ -1,8 +1,8 @@
 ﻿namespace Tes3MpPluginHelper
 {
-    public struct DataFile
+    public class DataFile
     {
-        public string Name;
-        public string Checksum;
+        public string Name { get; set; }
+        public string Checksum { get; set; }
     }
 }
