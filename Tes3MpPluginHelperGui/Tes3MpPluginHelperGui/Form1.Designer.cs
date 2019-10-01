@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this._configTextBox = new System.Windows.Forms.TextBox();
             this._browseConfigButton = new System.Windows.Forms.Button();
@@ -37,10 +36,8 @@
             this._browseOutputButton = new System.Windows.Forms.Button();
             this._outputTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this._defaultCrcCheckbox = new System.Windows.Forms.CheckBox();
             this._previewButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -125,10 +122,6 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Json Output File:";
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // _defaultCrcCheckbox
             // 
             this._defaultCrcCheckbox.AutoSize = true;
@@ -175,9 +168,8 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Server Plugin Helper";
+            this.Text = "Tes3Mp Plugin Helper";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,7 +185,6 @@
         private System.Windows.Forms.Button _browseOutputButton;
         private System.Windows.Forms.TextBox _outputTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.CheckBox _defaultCrcCheckbox;
         private System.Windows.Forms.Button _previewButton;
     }
