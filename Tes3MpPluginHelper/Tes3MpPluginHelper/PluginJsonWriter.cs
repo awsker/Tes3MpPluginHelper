@@ -6,7 +6,7 @@ namespace Tes3MpPluginHelper
 {
     public static class PluginJsonWriter
     {
-        private static Dictionary<string, ISet<string>> _defaultCrc;
+        private static readonly Dictionary<string, ISet<string>> _defaultCrc;
 
         private const string HEADER = @"// This file lets you enforce a certain plugin list and order for all clients
 // attempting to join this server
@@ -20,10 +20,12 @@ namespace Tes3MpPluginHelper
 
         static PluginJsonWriter()
         {
-            _defaultCrc = new Dictionary<string, ISet<string>>();
-            _defaultCrc.Add("morrowind.esm", new HashSet<string>() { "0x7B6AF5B9", "0x34282D67" });
-            _defaultCrc.Add("tribunal.esm", new HashSet<string>() { "0xF481F334", "0x211329EF" });
-            _defaultCrc.Add("bloodmoon.esm", new HashSet<string>() { "0x43DD2132", "0x9EB62F26" });
+            _defaultCrc = new Dictionary<string, ISet<string>>
+            {
+                { "morrowind.esm", new HashSet<string>() { "0x7B6AF5B9", "0x34282D67" } },
+                { "tribunal.esm", new HashSet<string>() { "0xF481F334", "0x211329EF" } },
+                { "bloodmoon.esm", new HashSet<string>() { "0x43DD2132", "0x9EB62F26" } }
+            };
         }
         public static void WritePluginJson(string outputFile, DataFile[] datafiles, bool includeDefaultCrc = true)
         {
