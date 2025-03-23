@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace Tes3MpPluginHelper
@@ -12,7 +13,7 @@ namespace Tes3MpPluginHelper
             var dataFiles = new List<DataFile>();
             var configContents = getContent(configPath ?? OpenMwConfigPath);
 
-            foreach (var dataFile in configContents.DataFiles)
+            foreach (var dataFile in configContents.DataFiles.Reverse())
             {
                 string completePath = null;
                 foreach (var path in configContents.DataPaths)
