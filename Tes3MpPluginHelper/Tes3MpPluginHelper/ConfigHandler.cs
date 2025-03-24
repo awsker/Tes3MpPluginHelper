@@ -13,10 +13,10 @@ namespace Tes3MpPluginHelper
             var dataFiles = new List<DataFile>();
             var configContents = getContent(configPath ?? OpenMwConfigPath);
 
-            foreach (var dataFile in configContents.DataFiles.Reverse())
+            foreach (var dataFile in configContents.DataFiles)
             {
                 string completePath = null;
-                foreach (var path in configContents.DataPaths)
+                foreach (var path in configContents.DataPaths.Reverse())
                 {
                     if (File.Exists(Path.Combine(path, dataFile)))
                     {
