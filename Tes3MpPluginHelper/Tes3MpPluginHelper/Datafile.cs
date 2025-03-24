@@ -4,5 +4,6 @@
     {
         public string Name { get; set; }
         public string Checksum { get; set; }
+        public string FullPath { get; set; }
     }
 }

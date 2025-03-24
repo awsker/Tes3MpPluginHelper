@@ -28,86 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this._closeButton = new System.Windows.Forms.Button();
-            this._nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._checksumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
+            dataGridView1 = new DataGridView();
+            _nameColumn = new DataGridViewTextBoxColumn();
+            _checksumColumn = new DataGridViewTextBoxColumn();
+            panel1 = new Panel();
+            _closeButton = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this._nameColumn,
-            this._checksumColumn});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(300, 333);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this._closeButton);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 333);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(300, 38);
-            this.panel1.TabIndex = 1;
-            // 
-            // _closeButton
-            // 
-            this._closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._closeButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._closeButton.Location = new System.Drawing.Point(213, 6);
-            this._closeButton.Name = "_closeButton";
-            this._closeButton.Size = new System.Drawing.Size(75, 23);
-            this._closeButton.TabIndex = 5;
-            this._closeButton.Text = "Close";
-            this._closeButton.UseVisualStyleBackColor = true;
-            this._closeButton.Click += new System.EventHandler(this._closeButton_Click);
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { _nameColumn, _checksumColumn });
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.Location = new Point(0, 0);
+            dataGridView1.Margin = new Padding(4, 3, 4, 3);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.Size = new Size(350, 384);
+            dataGridView1.TabIndex = 0;
+            dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+            dataGridView1.CellPainting += dataGridView1_CellPainting;
             // 
             // _nameColumn
             // 
-            this._nameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this._nameColumn.DataPropertyName = "Name";
-            this._nameColumn.HeaderText = "Name";
-            this._nameColumn.Name = "_nameColumn";
-            this._nameColumn.ReadOnly = true;
+            _nameColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            _nameColumn.DataPropertyName = "Name";
+            _nameColumn.HeaderText = "Name";
+            _nameColumn.Name = "_nameColumn";
+            _nameColumn.ReadOnly = true;
             // 
             // _checksumColumn
             // 
-            this._checksumColumn.DataPropertyName = "Checksum";
-            this._checksumColumn.HeaderText = "Checksum";
-            this._checksumColumn.Name = "_checksumColumn";
-            this._checksumColumn.ReadOnly = true;
-            this._checksumColumn.Width = 120;
+            _checksumColumn.DataPropertyName = "Checksum";
+            _checksumColumn.HeaderText = "Checksum";
+            _checksumColumn.Name = "_checksumColumn";
+            _checksumColumn.ReadOnly = true;
+            _checksumColumn.Width = 120;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(_closeButton);
+            panel1.Dock = DockStyle.Bottom;
+            panel1.Location = new Point(0, 384);
+            panel1.Margin = new Padding(4, 3, 4, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(350, 44);
+            panel1.TabIndex = 1;
+            // 
+            // _closeButton
+            // 
+            _closeButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            _closeButton.DialogResult = DialogResult.Cancel;
+            _closeButton.Location = new Point(248, 7);
+            _closeButton.Margin = new Padding(4, 3, 4, 3);
+            _closeButton.Name = "_closeButton";
+            _closeButton.Size = new Size(88, 27);
+            _closeButton.TabIndex = 5;
+            _closeButton.Text = "Close";
+            _closeButton.UseVisualStyleBackColor = true;
+            _closeButton.Click += _closeButton_Click;
             // 
             // PreviewDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this._closeButton;
-            this.ClientSize = new System.Drawing.Size(300, 371);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Name = "PreviewDialog";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Preview Plugins";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = _closeButton;
+            ClientSize = new Size(350, 428);
+            Controls.Add(dataGridView1);
+            Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "PreviewDialog";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Preview Plugins";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel1.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
