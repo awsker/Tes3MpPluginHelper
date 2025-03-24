@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Windows.Forms;
-
-namespace Tes3MpPluginHelperGui
+﻿namespace Tes3MpPluginHelperGui
 {
     public partial class Form1 : Form
     {
@@ -76,16 +72,21 @@ namespace Tes3MpPluginHelperGui
 
         private void _generateButton_Click(object sender, EventArgs e)
         {
+            if (!File.Exists(_configTextBox.Text))
+            {
+                showError($"Configuration file not found");
+                return;
+            }
             try
             {
                 saveSettings();
                 var configs = Tes3MpPluginHelper.ConfigHandler.GetSelectedDatafiles(_configTextBox.Text);
                 Tes3MpPluginHelper.PluginJsonWriter.WritePluginJson(_outputTextBox.Text, configs);
-                MessageBox.Show("Json generated successfully!");
+                showMessage("Json generated successfully!");
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                showError(ex.Message);
             }
         }
 
@@ -99,7 +100,7 @@ namespace Tes3MpPluginHelperGui
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                showError(ex.Message);
             }
         }
 
@@ -108,11 +109,22 @@ namespace Tes3MpPluginHelperGui
             updateButtonStatus();
         }
 
+        private void showMessage(string message)
+        {
+            MessageBox.Show(this, message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void showError(string message)
+        {
+            MessageBox.Show(this, message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
         private void updateButtonStatus()
         {
             bool fileExists = File.Exists(_configTextBox.Text);
+            bool outputFileSet = Path.Exists(Path.GetDirectoryName(_outputTextBox.Text));
             _previewButton.Enabled = fileExists;
-            _generateButton.Enabled = fileExists;
+            _generateButton.Enabled = fileExists && outputFileSet;
         }
     }
 }

@@ -112,6 +112,7 @@
             this._outputTextBox.Name = "_outputTextBox";
             this._outputTextBox.Size = new System.Drawing.Size(303, 20);
             this._outputTextBox.TabIndex = 6;
+            this._outputTextBox.TextChanged += new System.EventHandler(this._configTextBox_TextChanged);
             // 
             // label2
             // 
